@@ -4,7 +4,6 @@ namespace LLFramework
 {
     public class TileBase : MonoBehaviour
     {
-        public int x;
-        public int y;
+        public int id;
     }
 }
