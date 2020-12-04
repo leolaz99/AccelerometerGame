@@ -3,6 +3,7 @@
 public class Accelerometer : MonoBehaviour
 {
     Rigidbody rb;
+    [SerializeField] float speed;
 
     private void Awake()
     {
@@ -11,8 +12,7 @@ public class Accelerometer : MonoBehaviour
 
     void Update()
     {
-        Vector3 tilt = Input.acceleration;
-        tilt = Quaternion.Euler(90, 0, 0) * tilt;
-        rb.AddForce(tilt, ForceMode.Acceleration);
+        Vector3 dir = new Vector3(Input.acceleration.x, 0, Input.acceleration.y);
+        rb.AddForce(dir * speed * Time.deltaTime);
     }
 }
